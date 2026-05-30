@@ -12,6 +12,17 @@ export default class ProductsController {
 
   }
 
+  // GET SINGLE PRODUCT
+  async show({ params }: HttpContext) {
+
+    const product = await Product.findOrFail(
+      params.id
+    )
+
+    return product
+
+  }
+
   // CREATE PRODUCT
   async store({ request, response }: HttpContext) {
 
@@ -21,6 +32,7 @@ export default class ProductsController {
       'stock',
       'status',
       'image',
+      'description',
     ])
 
     const product = await Product.create(data)
@@ -43,6 +55,7 @@ export default class ProductsController {
       'stock',
       'status',
       'image',
+      'description',
     ])
 
     product.merge(data)

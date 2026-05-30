@@ -12,6 +12,7 @@ import router from '@adonisjs/core/services/router'
 import { controllers } from '#generated/controllers'
 import ProductsController from '#controllers/products_controller'
 import CategoriesController from '#controllers/categories_controller'
+import ReportsController from '#controllers/reports_controller'
 
 router.get('/', () => {
   return { hello: 'world' }
@@ -66,21 +67,71 @@ router
       .prefix('categories')
       .use(middleware.auth())
 
-    // PRODUCTS API
-    router
-      .group(() => {
+      // PUBLIC PRODUCTS
+      router.get(
+        'products',
+        [ProductsController, 'index']
+      )
 
-        router.get('/', [ProductsController, 'index'])
+      router.get(
 
-        router.post('/', [ProductsController, 'store'])
+      'products/:id',
 
-        router.put('/:id', [ProductsController, 'update'])
+      [ProductsController, 'show']
 
-        router.delete('/:id', [ProductsController, 'destroy'])
+      ) 
 
-      })
-      .prefix('products')
-      .use(middleware.auth())
+      // ADMIN PRODUCTS
+      router
+        .group(() => {
+
+          router.post(
+            '/',
+            [ProductsController, 'store']
+          )
+
+          router.put(
+            '/:id',
+            [ProductsController, 'update']
+          )
+
+          router.delete(
+            '/:id',
+            [ProductsController, 'destroy']
+          )
+
+        })
+        .prefix('products')
+        .use(middleware.auth())
+
+              // PUBLIC REPORTS
+      router.post(
+        'reports',
+        [ReportsController, 'store']
+      )
+
+      // ADMIN REPORTS
+      router
+        .group(() => {
+
+          router.get(
+            '/',
+            [ReportsController, 'index']
+          )
+
+          router.put(
+            '/:id',
+            [ReportsController, 'update']
+          )
+
+          router.delete(
+            '/:id',
+            [ReportsController, 'destroy']
+          )
+
+        })
+        .prefix('reports')
+        .use(middleware.auth())
 
     
     

@@ -103,6 +103,18 @@ export interface Registry {
       errorResponse: unknown
     }
   }
+  'products.show': {
+    methods: ["GET","HEAD"]
+    pattern: '/api/v1/products/:id'
+    types: {
+      body: {}
+      paramsTuple: [ParamValue]
+      params: { id: ParamValue }
+      query: {}
+      response: unknown
+      errorResponse: unknown
+    }
+  }
   'products.store': {
     methods: ["POST"]
     pattern: '/api/v1/products'
@@ -130,6 +142,54 @@ export interface Registry {
   'products.destroy': {
     methods: ["DELETE"]
     pattern: '/api/v1/products/:id'
+    types: {
+      body: {}
+      paramsTuple: [ParamValue]
+      params: { id: ParamValue }
+      query: {}
+      response: unknown
+      errorResponse: unknown
+    }
+  }
+  'reports.store': {
+    methods: ["POST"]
+    pattern: '/api/v1/reports'
+    types: {
+      body: {}
+      paramsTuple: []
+      params: {}
+      query: {}
+      response: unknown
+      errorResponse: unknown
+    }
+  }
+  'reports.index': {
+    methods: ["GET","HEAD"]
+    pattern: '/api/v1/reports'
+    types: {
+      body: {}
+      paramsTuple: []
+      params: {}
+      query: {}
+      response: unknown
+      errorResponse: unknown
+    }
+  }
+  'reports.update': {
+    methods: ["PUT"]
+    pattern: '/api/v1/reports/:id'
+    types: {
+      body: {}
+      paramsTuple: [ParamValue]
+      params: { id: ParamValue }
+      query: {}
+      response: unknown
+      errorResponse: unknown
+    }
+  }
+  'reports.destroy': {
+    methods: ["DELETE"]
+    pattern: '/api/v1/reports/:id'
     types: {
       body: {}
       paramsTuple: [ParamValue]

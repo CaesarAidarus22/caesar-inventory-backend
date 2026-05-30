@@ -21,10 +21,14 @@ export default class Product extends BaseModel {
   @column()
   declare image: string | null
 
+  @column()
+  declare description: string | null
+
   @column.dateTime({ autoCreate: true })
   declare createdAt: DateTime
 
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   declare updatedAt: DateTime
+  
 
 }

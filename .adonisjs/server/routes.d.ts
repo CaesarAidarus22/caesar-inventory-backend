@@ -12,19 +12,28 @@ export type ScannedRoutes = {
     'categories.store': { paramsTuple?: []; params?: {} }
     'categories.destroy': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
     'products.index': { paramsTuple?: []; params?: {} }
+    'products.show': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
     'products.store': { paramsTuple?: []; params?: {} }
     'products.update': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
     'products.destroy': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
+    'reports.store': { paramsTuple?: []; params?: {} }
+    'reports.index': { paramsTuple?: []; params?: {} }
+    'reports.update': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
+    'reports.destroy': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
   }
   GET: {
     'profile.profile.show': { paramsTuple?: []; params?: {} }
     'categories.index': { paramsTuple?: []; params?: {} }
     'products.index': { paramsTuple?: []; params?: {} }
+    'products.show': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
+    'reports.index': { paramsTuple?: []; params?: {} }
   }
   HEAD: {
     'profile.profile.show': { paramsTuple?: []; params?: {} }
     'categories.index': { paramsTuple?: []; params?: {} }
     'products.index': { paramsTuple?: []; params?: {} }
+    'products.show': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
+    'reports.index': { paramsTuple?: []; params?: {} }
   }
   POST: {
     'auth.new_account.store': { paramsTuple?: []; params?: {} }
@@ -32,13 +41,16 @@ export type ScannedRoutes = {
     'profile.access_tokens.destroy': { paramsTuple?: []; params?: {} }
     'categories.store': { paramsTuple?: []; params?: {} }
     'products.store': { paramsTuple?: []; params?: {} }
+    'reports.store': { paramsTuple?: []; params?: {} }
   }
   DELETE: {
     'categories.destroy': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
     'products.destroy': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
+    'reports.destroy': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
   }
   PUT: {
     'products.update': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
+    'reports.update': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
   }
 }
 declare module '@adonisjs/core/types/http' {

@@ -54,6 +54,12 @@ const routes = {
     tokens: [{"old":"/api/v1/products","type":0,"val":"api","end":""},{"old":"/api/v1/products","type":0,"val":"v1","end":""},{"old":"/api/v1/products","type":0,"val":"products","end":""}],
     types: placeholder as Registry['products.index']['types'],
   },
+  'products.show': {
+    methods: ["GET","HEAD"],
+    pattern: '/api/v1/products/:id',
+    tokens: [{"old":"/api/v1/products/:id","type":0,"val":"api","end":""},{"old":"/api/v1/products/:id","type":0,"val":"v1","end":""},{"old":"/api/v1/products/:id","type":0,"val":"products","end":""},{"old":"/api/v1/products/:id","type":1,"val":"id","end":""}],
+    types: placeholder as Registry['products.show']['types'],
+  },
   'products.store': {
     methods: ["POST"],
     pattern: '/api/v1/products',
@@ -71,6 +77,30 @@ const routes = {
     pattern: '/api/v1/products/:id',
     tokens: [{"old":"/api/v1/products/:id","type":0,"val":"api","end":""},{"old":"/api/v1/products/:id","type":0,"val":"v1","end":""},{"old":"/api/v1/products/:id","type":0,"val":"products","end":""},{"old":"/api/v1/products/:id","type":1,"val":"id","end":""}],
     types: placeholder as Registry['products.destroy']['types'],
+  },
+  'reports.store': {
+    methods: ["POST"],
+    pattern: '/api/v1/reports',
+    tokens: [{"old":"/api/v1/reports","type":0,"val":"api","end":""},{"old":"/api/v1/reports","type":0,"val":"v1","end":""},{"old":"/api/v1/reports","type":0,"val":"reports","end":""}],
+    types: placeholder as Registry['reports.store']['types'],
+  },
+  'reports.index': {
+    methods: ["GET","HEAD"],
+    pattern: '/api/v1/reports',
+    tokens: [{"old":"/api/v1/reports","type":0,"val":"api","end":""},{"old":"/api/v1/reports","type":0,"val":"v1","end":""},{"old":"/api/v1/reports","type":0,"val":"reports","end":""}],
+    types: placeholder as Registry['reports.index']['types'],
+  },
+  'reports.update': {
+    methods: ["PUT"],
+    pattern: '/api/v1/reports/:id',
+    tokens: [{"old":"/api/v1/reports/:id","type":0,"val":"api","end":""},{"old":"/api/v1/reports/:id","type":0,"val":"v1","end":""},{"old":"/api/v1/reports/:id","type":0,"val":"reports","end":""},{"old":"/api/v1/reports/:id","type":1,"val":"id","end":""}],
+    types: placeholder as Registry['reports.update']['types'],
+  },
+  'reports.destroy': {
+    methods: ["DELETE"],
+    pattern: '/api/v1/reports/:id',
+    tokens: [{"old":"/api/v1/reports/:id","type":0,"val":"api","end":""},{"old":"/api/v1/reports/:id","type":0,"val":"v1","end":""},{"old":"/api/v1/reports/:id","type":0,"val":"reports","end":""},{"old":"/api/v1/reports/:id","type":1,"val":"id","end":""}],
+    types: placeholder as Registry['reports.destroy']['types'],
   },
 } as const satisfies Record<string, AdonisEndpoint>
 

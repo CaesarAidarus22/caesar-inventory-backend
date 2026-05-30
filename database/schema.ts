@@ -46,12 +46,14 @@ export class CategorySchema extends BaseModel {
 }
 
 export class ProductSchema extends BaseModel {
-  static $columns = ['category', 'createdAt', 'id', 'image', 'name', 'status', 'stock', 'updatedAt'] as const
+  static $columns = ['category', 'createdAt', 'description', 'id', 'image', 'name', 'status', 'stock', 'updatedAt'] as const
   $columns = ProductSchema.$columns
   @column()
   declare category: string
   @column.dateTime({ autoCreate: true })
   declare createdAt: DateTime | null
+  @column()
+  declare description: string | null
   @column({ isPrimary: true })
   declare id: number
   @column()
@@ -62,6 +64,29 @@ export class ProductSchema extends BaseModel {
   declare status: string
   @column()
   declare stock: number
+  @column.dateTime({ autoCreate: true, autoUpdate: true })
+  declare updatedAt: DateTime | null
+}
+
+export class ReportSchema extends BaseModel {
+  static $columns = ['createdAt', 'description', 'id', 'petugas', 'priority', 'productName', 'reportType', 'status', 'updatedAt'] as const
+  $columns = ReportSchema.$columns
+  @column.dateTime({ autoCreate: true })
+  declare createdAt: DateTime | null
+  @column()
+  declare description: string
+  @column({ isPrimary: true })
+  declare id: number
+  @column()
+  declare petugas: string
+  @column()
+  declare priority: string
+  @column()
+  declare productName: string
+  @column()
+  declare reportType: string
+  @column()
+  declare status: string | null
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   declare updatedAt: DateTime | null
 }
